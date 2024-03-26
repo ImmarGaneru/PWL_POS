@@ -328,6 +328,16 @@ return [
             'url' => 'kategori',
             'icon' => 'fas fa-fw fa-list',
         ],
+        [
+            'text' => 'Manage User',
+            'url' => 'user',
+            'icon' => 'fas fa-fw fa-list',
+        ],
+        [
+            'text' => 'Manage Level',
+            'url' => 'level',
+            'icon' => 'fas fa-fw fa-list',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

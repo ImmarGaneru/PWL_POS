@@ -2,16 +2,16 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Kategori')
+@section('subtitle', 'Level')
 @section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Kategori')
+@section('content_header_subtitle', 'Level')
 
 @section('content')
     <div class="container">
         <div class="card">
-            <div class="card-header">Manage Kategori</div>
+            <div class="card-header">Manage Level</div>
             <div class="card-body">
-                <a href="{{ route('createKategori') }}" class="btn btn-primary mb-3">Add New</a>
+                <a href="{{ route('createLevel') }}" class="btn btn-primary mb-3">Add New</a>
                 {{ $dataTable->table() }}
             </div>
         </div>

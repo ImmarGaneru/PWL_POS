@@ -29,10 +29,16 @@ Route::get('/user/ubah/{id}', [UserController::class, 'ubah']);
 Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
 Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
 
-Route::get('/kategori/create', [KategoriController::class, 'create'])->name('create');
+Route::get('/kategori/create', [KategoriController::class, 'create'])->name('createKategori');
 Route::post('/kategori', [KategoriController::class, 'store']);
 
 Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
 Route::put('/kategori/edit_submit/{id}', [KategoriController::class, 'edit_submit'])->name('kategori.edit_submit');
 
 Route::get('/kategori/hapus/{id}',[KategoriController::class, 'hapus'])->name('kategori.hapus');
+
+Route::get('/level/create', [LevelController::class, 'create'])->name('createLevel');
+Route::post('/level', [LevelController::class, 'store']);
+
+Route::get('/user/create', [UserController::class, 'create'])->name('createUser');
+Route::post('/user', [UserController::class, 'store']);
