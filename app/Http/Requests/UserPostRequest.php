@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\RedirectResponse;
 
-class StorePostRequest extends FormRequest
+class UserPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +22,10 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'kategori_kode' => 'required',
-            'kategori_nama' => 'required',
+            'username' => 'required',
+            'nama' => 'required',
+            'password' => 'required',
+            'level_id' => 'required',
         ];
     }
-
 }
