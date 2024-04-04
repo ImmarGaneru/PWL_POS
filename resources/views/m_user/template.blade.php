@@ -10,7 +10,3 @@
         </div>
     </body>
 </html>
-
-Fungsi $request->validate digunakan untuk memvalidasi input dimasukkan 
-sesuai dengan aturan yang telah ditetapkan sebelumnya yang diterima dari 
-pengguna sebelum data disimpan atau diproses lebih lanjut.
