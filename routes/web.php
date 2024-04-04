@@ -31,27 +31,38 @@ Route::group(['prefix' => 'user'], function() {
     Route::delete('/{id}', [UserController::class, 'destroy']); // menghapus data user
 });
 
-Route::get('/level', [LevelController::class, 'index']);
-Route::get('/kategori', [KategoriController::class, 'index']);
-Route::get('/user', [UserController::class, 'index']);
-Route::get('/user/tambah', [UserController::class, 'tambah']);
-Route::post('/user/tambah_simpan', [UserController::class, 'tambah_simpan']);
-Route::get('/user/ubah/{id}', [UserController::class, 'ubah']);
-Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
-Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
+Route::group(['prefix' => 'level'], function() {
+    Route::get('/', [LevelController::class, 'index']);          // menampilkan halaman awal level
+    Route::post('/list', [LevelController::class, 'list']);      // menampilkan data level dalam bentuk json untuk datatables
+    Route::get('/create', [LevelController::class, 'create']);   // menampilkan halaman form tambah level
+    Route::post('/', [LevelController::class, 'store']);         // menyimpan data level baru
+    Route::get('/{id}', [LevelController::class, 'show']);       // menampilkan detail level
+    Route::get('/{id}/edit', [LevelController::class, 'edit']);  // menampilkan halaman form edit level
+    Route::put('/{id}', [LevelController::class, 'update']);     // menyimpan perubahan data level
+    Route::delete('/{id}', [LevelController::class, 'destroy']); // menghapus data level
+});
 
-Route::get('/kategori/create', [KategoriController::class, 'create'])->name('createKategori');
-Route::post('/kategori', [KategoriController::class, 'store']);
+// Route::get('/level', [LevelController::class, 'index']);
+// Route::get('/kategori', [KategoriController::class, 'index']);
+// Route::get('/user', [UserController::class, 'index']);
+// Route::get('/user/tambah', [UserController::class, 'tambah']);
+// Route::post('/user/tambah_simpan', [UserController::class, 'tambah_simpan']);
+// Route::get('/user/ubah/{id}', [UserController::class, 'ubah']);
+// Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
+// Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
 
-Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
-Route::put('/kategori/edit_submit/{id}', [KategoriController::class, 'edit_submit'])->name('kategori.edit_submit');
+// Route::get('/kategori/create', [KategoriController::class, 'create'])->name('createKategori');
+// Route::post('/kategori', [KategoriController::class, 'store']);
 
-Route::get('/kategori/hapus/{id}',[KategoriController::class, 'hapus'])->name('kategori.hapus');
+// Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
+// Route::put('/kategori/edit_submit/{id}', [KategoriController::class, 'edit_submit'])->name('kategori.edit_submit');
 
-Route::get('/level/create', [LevelController::class, 'create'])->name('createLevel');
-Route::post('/level', [LevelController::class, 'store']);
+// Route::get('/kategori/hapus/{id}',[KategoriController::class, 'hapus'])->name('kategori.hapus');
 
-Route::get('/user/create', [UserController::class, 'create'])->name('createUser');
-Route::post('/user', [UserController::class, 'store']);
+// Route::get('/level/create', [LevelController::class, 'create'])->name('createLevel');
+// Route::post('/level', [LevelController::class, 'store']);
 
-route::resource('m_user', POSController::class);
+// Route::get('/user/create', [UserController::class, 'create'])->name('createUser');
+// Route::post('/user', [UserController::class, 'store']);
+
+// route::resource('m_user', POSController::class);
