@@ -4,6 +4,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LevelController;
+use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\UserController;
@@ -75,6 +76,17 @@ Route::group(['prefix' => 'stok'], function() {
     Route::get('/{id}/edit', [StokController::class, 'edit']);  // menampilkan halaman form edit user
     Route::put('/{id}', [StokController::class, 'update']);     // menyimpan perubahan data user
     Route::delete('/{id}', [StokController::class, 'destroy']); // menghapus data user
+});
+
+Route::group(['prefix' => 'penjualan'], function() {
+    Route::get('/', [PenjualanController::class, 'index']);          // menampilkan halaman awal user
+    Route::post('/list', [PenjualanController::class, 'list']);      // menampilkan data user dalam bentuk json untuk datatables
+    Route::get('/create', [PenjualanController::class, 'create']);   // menampilkan halaman form tambah user
+    Route::post('/', [PenjualanController::class, 'store']);         // menyimpan data user baru
+    Route::get('/{id}', [PenjualanController::class, 'show']);       // menampilkan detail user
+    Route::get('/{id}/edit', [PenjualanController::class, 'edit']);  // menampilkan halaman form edit user
+    Route::put('/{id}', [PenjualanController::class, 'update']);     // menyimpan perubahan data user
+    Route::delete('/{id}', [PenjualanController::class, 'destroy']); // menghapus data user
 });
 // Route::get('/level', [LevelController::class, 'index']);
 // Route::get('/kategori', [KategoriController::class, 'index']);
