@@ -42,6 +42,17 @@ Route::group(['prefix' => 'level'], function() {
     Route::delete('/{id}', [LevelController::class, 'destroy']); // menghapus data level
 });
 
+Route::group(['prefix' => 'kategori'], function() {
+    Route::get('/', [KategoriController::class, 'index']);          // menampilkan halaman awal level
+    Route::post('/list', [KategoriController::class, 'list']);      // menampilkan data level dalam bentuk json untuk datatables
+    Route::get('/create', [KategoriController::class, 'create']);   // menampilkan halaman form tambah level
+    Route::post('/', [KategoriController::class, 'store']);         // menyimpan data level baru
+    Route::get('/{id}', [KategoriController::class, 'show']);       // menampilkan detail level
+    Route::get('/{id}/edit', [KategoriController::class, 'edit']);  // menampilkan halaman form edit level
+    Route::put('/{id}', [KategoriController::class, 'update']);     // menyimpan perubahan data level
+    Route::delete('/{id}', [KategoriController::class, 'destroy']); // menghapus data level
+});
+
 // Route::get('/level', [LevelController::class, 'index']);
 // Route::get('/kategori', [KategoriController::class, 'index']);
 // Route::get('/user', [UserController::class, 'index']);
