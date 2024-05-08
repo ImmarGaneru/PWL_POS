@@ -18,7 +18,7 @@
 
                 <div class="mb-3">
                     <label for="berkas" class="form-label">Gambar Profile</label>
-                    <input type="file" class="form-control" id="berkas" nama="berkas">
+                    <input type="file" class="form-control" id="berkas" name="berkas">
                     @error('berkas')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
