@@ -31,7 +31,7 @@ class BarangModel extends Model
         'barang_nama',
         'harga_beli',
         'harga_jual',
-        'image'
+        'gambar'
     ];
 
     public function kategori(): BelongsTo

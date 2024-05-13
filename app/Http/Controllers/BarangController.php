@@ -74,16 +74,25 @@ class BarangController extends Controller
             'barang_kode'     => 'required|string', 
             'barang_nama' => 'required|min:5',          
             'harga_beli' => 'required|integer',         
-            'harga_jual' => 'required|integer'
+            'harga_jual' => 'required|integer',
+            'berkas'=>'required|file|image|max:500'
         ]);
+
+        $namaFile = $request->barang_kode . '.' . $request->berkas->getClientOriginalExtension();
 
         BarangModel::create([
             'kategori_id' => $request->kategori_id,
             'barang_kode'     => $request->barang_kode,
             'barang_nama' => $request->barang_nama, 
             'harga_beli' => $request->harga_beli,
-            'harga_jual' => $request->harga_jual
+            'harga_jual' => $request->harga_jual,
+            'gambar' => $namaFile
         ]);
+
+        $path = $request->berkas->move('gambar',$namaFile);
+        $path = str_replace("\\","//", $path);
+
+        $pathBaru=asset('gambar/'.$namaFile);
 
         return redirect('/barang')->with('success', 'Data barang berhasil disimpan');
     }
